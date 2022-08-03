@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  fuzzer:
+    build:
+      context: ./
+    tty: true
+    networks:
+      - mqtt_network
+    depends_on:
+      - "mqtt_server"
+
+  mqtt_server:
+    hostname: mosquitto
+    build:
+      context: ./fuzzquitto/docker/fuzzing
+    ports:
+      - 1883:1883
+    networks:
+      - mqtt_network
+
+networks:
+  mqtt_network:
+    external: true

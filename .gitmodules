@@ -1,0 +1,3 @@
+[submodule "fuzzquitto"]
+	path = fuzzquitto
+	url = ./fuzzquitto
